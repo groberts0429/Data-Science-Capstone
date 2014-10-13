@@ -1,5 +1,9 @@
 TextPredictor Instructions
-1)	Copy the TextPredictor directory to a convenient location
-2)	Open RStudio
-3)	Set the working directory to the TextPredictor directory
-Make sure that the n-gram object “tdm2.rda” as well
+1)	Create a directory named "TextPredictor" in C:\
+  a) If you wish to use another directory, the server.R code must be modified.
+2)	Download the ui.R, server.R and the Rda objects to C:\TextPredictor
+3)	Open RStudio
+4)  Open Project
+  a) Browse for the C:\TextPredictor project
+  b) Open
+5)  Enter one or two words as input, then press 'Enter'.
