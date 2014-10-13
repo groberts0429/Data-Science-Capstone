@@ -7,7 +7,7 @@ output: word_document
 #Introduction
 A predictive model for the English language was built using R packages tm, RWeka, and custom code. The model specifically predicts the next word typed by a user in a text application. Twitter with its 140 character limit most closely matches the style and length of a text message. Thus, the majority of the training set was made up of Twitter messages. A small proportion of blogs were added to round out the training set and widen the array of topics and styles present in the training data.  
   
-After introducing the functions and data used in the production model, an in-depth study of a simple corpus is presented to further expound on the construction and prediction of the model.
+After introducing the functions and data used in the production model, an in-depth study of a simple corpus is presented to further expound on the construction of the model and its predictions.
 
 ##Data Preprpocessing
 Load the text mining package, set the working directory, load packages
