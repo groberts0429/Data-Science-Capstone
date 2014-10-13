@@ -5,9 +5,9 @@ output: word_document
 ---
 
 #Introduction
-A predictive model for the English language was built using R packages tm, RWeka, and custom code. Themodel specifically predicts the next word typed by a user in a text application. Twitter with its 140 character limit most closely matches the style and length of a text message. Thus, the majority of the training set was made up of Twitter messages. A small proportion of blogs were added to round out the training set and widen the array of topics and styles present in the training data.  
+A predictive model for the English language was built using R packages tm, RWeka, and custom code. The model specifically predicts the next word typed by a user in a text application. Twitter with its 140 character limit most closely matches the style and length of a text message. Thus, the majority of the training set was made up of Twitter messages. A small proportion of blogs were added to round out the training set and widen the array of topics and styles present in the training data.  
   
-After introducing the functions and data used in the production model, an in-depth study of a simple corpus is presented to further expound
+After introducing the functions and data used in the production model, an in-depth study of a simple corpus is presented to further expound on the construction and prediction of the model.
 
 ##Data Preprpocessing
 Load the text mining package, set the working directory, load packages
@@ -30,7 +30,7 @@ Compile the cleanup function which will convert to lower case, indicate the firs
 ```{r cleanup function}
 cleanup <- function(lines) { 
   t <- tolower(lines)
-  #Substitution preserves ellipses and punctuation which would otherwise be lost during tokenization. 
+  #Substitution preserves elements which would otherwise be lost during tokenization
 	t <- gsub("\\.\\.\\.", " <ellipse> ", t) 
 	t <- gsub("\\.", " <period>", t)
 	t <- gsub("\\?", " <question>", t)
@@ -126,7 +126,7 @@ trisums <- rowf(triterms, trisumsl)
 ```
 
 ##Assemble the Markov Chain Transition Matrix
-A square transition matrix is the goal of the next two code chunks. Because it is possible that some words are present at the beginning of an n-gram but not the end or vice versa, the beginning and end word lists must be concatenated to produce a single list which will be used for both rows as well as columns. Concatenate the unique set of word(s) occurring in the input, and output positions. Rowsums must equal 1. Since not every word in the final position is also followed by a word in the corpus, this would introduce zeros into the matrix. To avoid this, words which only occur in the final position of an ngram will lead to a prediction of <end>. 
+The next two code chunks produce a square transition matrix to be loaded into the markovchain package.
 ```{r}
 bisboth <- unique(c(bisbegin, bislast, "<end>"))
 triboth <- unique(c(tribegin, trilast, "<end>"))
@@ -165,7 +165,7 @@ mbi <- squarematf(bisboth, bisbegin, bislast, bissums)
 mrowsums <- apply(mbi, 1, sum)
 ```
 
-Transform the square transition matrix into a Markov chain object using the markovchain package. 
+Transform the square transition matrix into a Markov chain objectt. 
 ```{r, eval=FALSE}
 ## Markov Chain ##
 mvector <- c(mbi)
@@ -194,7 +194,7 @@ predict3 <- function(matrix, uboth, begin, last,  rowsums, input="<start>") {
 
 ##Full Description of how the Data are Used in Building the Prediction Algorithm
 ###"Roses are Red"
-Consider the following highly-simplified example using three sentences as inputs and bigrams for the purposes of building the Markov Chain Transition Matrix.
+The following highly-simplified example illustrates the prediction process.
 ```{r}
 rh <- "C:/Users/Owner/Documents/R/capstone/Coursera-SwiftKey/final/en_US/roses.txt"
 d <- readLines(rh) #Prepare a simple data set
