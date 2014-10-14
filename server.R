@@ -1,15 +1,24 @@
 library(shiny)
 
 ##### Load the Prediction Matrix ####
-load(file="C:/TextPredictor/rosemce.rda")
-load(file="C:/TextPredictor/ubothe.rda")
-load(file="C:/TextPredictor/firste.rda")
-load(file="C:/TextPredictor/seconde.rda")
-load(file="C:/TextPredictor/bissumse.rda")
+############# Roses are Red Dataset #############
+#load(file="C:/TextPredictor/rosemce.rda")
+#load(file="C:/TextPredictor/ubothe.rda")
+#load(file="C:/TextPredictor/firste.rda")
+#load(file="C:/TextPredictor/seconde.rda")
+#load(file="C:/TextPredictor/bissumse.rda")
+
+############ 1000 Tweets and all Other Datasets ###########
+load(file="C:/Data-Science-Capstone/mbi.rda")
+load(file="C:/Data-Science-Capstone/uboth.rda")
+load(file="C:/Data-Science-Capstone/first.rda")
+load(file="C:/Data-Science-Capstone/second.rda")
+load(file="C:/Data-Science-Capstone/bissums.rda")
+
 
 #### Prediction Function ####
-predict3 <- function(matrix, uboth, begin, last,  rowsums, input="<start>") { #rowsums for the ngrams not the matrix!  
-  if (is.null(input)) { input = "<start>" }
+predict3 <- function(matrix, uboth, begin, last,  rowsums, input) { #rowsums for the ngrams not the matrix!  
+  #if (is.null(input)) { input = "<start>" }
   ufirst  <- unique(begin)
   usecond <- unique(last)
   row = grep(paste("^", input, "$", sep=""), uboth)
@@ -29,7 +38,8 @@ shinyServer(
 #    })
     observe({
       param <- input$word
-      prediction <- predict3(rosemce, ubothe, firste, seconde, bissumse, input$word)
+#     prediction <- predict3(rosemce, ubothe, firste, seconde, bissumse, input$word)
+      prediction <- predict3(mbi, uboth, first, second, bissums, input$word)
       output$text1 <- renderText({ 
         paste("Top Prediction:    ", prediction[1])
       })
