@@ -3,7 +3,7 @@ TextPredictor Instructions
   a) If you wish to use another directory, the server.R code must be modified.
 2)	Download the ui.R, server.R and the Rda objects to C:\TextPredictor
 3)	Open RStudio
-4)  Open Project
-  a) Browse for the C:\TextPredictor project
-  b) Open
+4) Open the Shiny files.
+  4a) Open File -> ui.R
+  4b) Open File -> server.R
 5)  Enter one or two words as input, then press 'Enter'.
