@@ -1,15 +1,19 @@
-shinyUI(fluidPage (
+library(shiny)
+shinyUI(fluidPage(
   titlePanel("TextPredictor"),
+  
   sidebarLayout(
     sidebarPanel(
-      textInput("inputBoxId", "Input", value="<start>"), #textInput(inputId, label, value = "")
-      br(),
-      div(textOutput("outputBoxId", container = span), style=boxstyle)
+      helpText("Type a one or two word input into the input box and press 'Enter'."),
+      
+      textInput("word", "Input", value="<start>"),
+      textOutput("text1"),
+      textOutput("text2"),
+      textOutput("text3"),
+      textOutput("word")
     ),
-    mainPanel(
-      strong("Instructions"),
-      br(),
-      p("Type one, or two-word input in the 'Input' box.")
+    
+    mainPanel( #no main panel
     )
   )
 ))
