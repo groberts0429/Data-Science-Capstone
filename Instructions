@@ -4,6 +4,6 @@ TextPredictor Instructions
 2)	Download the ui.R, server.R and the Rda objects to C:\TextPredictor
 3)	Open RStudio
 4) Open the Shiny files.
-  4a) Open File -> ui.R
-  4b) Open File -> server.R
+  4a) Open File -> server.R
+  4b) Click "runApp"
 5)  Enter one or two words as input, then press 'Enter'.
