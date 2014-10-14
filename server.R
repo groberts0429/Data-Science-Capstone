@@ -9,11 +9,11 @@ library(shiny)
 #load(file="C:/TextPredictor/bissumse.rda")
 
 ############ 1000 Tweets and all Other Datasets ###########
-load(file="C:/Data-Science-Capstone/mbi.rda")
-load(file="C:/Data-Science-Capstone/uboth.rda")
-load(file="C:/Data-Science-Capstone/first.rda")
-load(file="C:/Data-Science-Capstone/second.rda")
-load(file="C:/Data-Science-Capstone/bissums.rda")
+load(file="C:/TextPredictor/mbi.rda")
+load(file="C:/DTextPredictor/uboth.rda")
+load(file="C:/TextPredictor/first.rda")
+load(file="C:/TextPredictor/second.rda")
+load(file="C:/TextPredictor/bissums.rda")
 
 
 #### Prediction Function ####
