@@ -1,9 +1,19 @@
 TextPredictor Instructions
 1)	Create a directory named "TextPredictor" in C:\
   a) If you wish to use another directory, the server.R code must be modified.
-2)	Download the ui.R, server.R and the Rda objects to C:\TextPredictor
-3)	Open RStudio
-4) Open the Shiny files.
-  4a) Open File -> server.R
-  4b) Click "runApp"
-5)  Enter one or two words as input, then press 'Enter'.
+2)	Download the ui.R and server.R to C:\TextPredictor
+3)  Download one set of objects to C:\TextPredictor
+  a) Each set of objects is in its own directory with a name such as "1000 Tweets", "2000 Tweets", and so on...
+  b) Larger sets will give better predictions, all should load in well under one minute.
+  c) All objects (except "Roses") are named identically, so the choice of which to put in the "C:\TextPredictor" directory is mutually exclusive.
+4)	Open RStudio
+5) Open the Shiny files.
+  5a) Open File -> server.R
+  5b) Click "runApp"
+6)  Enter one or two words as input (use all lowercase), then press 'Enter'.
+  a) Start exploration by entering a common word such as "a", "the", or "for".
+  b) Try picking one of the predicted words to see how long the model can generate reasonable text.
+  c) Note that the model predicts punctuation including ellipses, periods, and question marks.
+  d) Try typing <period>, <start>, <question> etc. to see what is most likely to follow these landmarks.
+  e) Though the small corpus size may have excluded a large number of words, note that predictions are reasonable within the domain of represented words and bigrams.
+7) As a last resort, if the larger files do not load, use the objects from the "Roses" directory (step 3). In the server.R file, uncomment the "Roses" section and toggle the comment as directed in the comments.

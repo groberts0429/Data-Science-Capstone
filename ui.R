@@ -4,7 +4,7 @@ shinyUI(fluidPage(
   
   sidebarLayout(
     sidebarPanel(
-      helpText("Type a one or two word input into the input box and press 'Enter'."),
+      helpText("Type a one or two word input into the input box (all lowercase) and press 'Enter'."),
       
       textInput("word", "Input", value="<start>"),
       textOutput("text1"),

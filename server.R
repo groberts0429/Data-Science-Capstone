@@ -38,8 +38,8 @@ shinyServer(
 #    })
     observe({
       param <- input$word
-#     prediction <- predict3(rosemce, ubothe, firste, seconde, bissumse, input$word)
-      prediction <- predict3(mbi, uboth, first, second, bissums, input$word)
+#     prediction <- predict3(rosemce, ubothe, firste, seconde, bissumse, input$word) #roses are red uses this function
+      prediction <- predict3(mbi, uboth, first, second, bissums, input$word) # Toggle comments on this and the previous line to get "Roses are Red".
       output$text1 <- renderText({ 
         paste("Top Prediction:    ", prediction[1])
       })
