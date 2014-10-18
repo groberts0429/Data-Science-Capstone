@@ -1,4 +1,8 @@
 TextPredictor Instructions
+Update: For your convenience, I deployed the app on the shinyapp website: https://groberts.shinyapps.io/TextPredictR/
+I apologize for not doing this initially. Alternatively, you can follow the instructions below which will create the same application locally using files from Monday the 13th.
+
+
 1)	Create a directory named "TextPredictor" in C:\
   a) If you wish to use another directory, the server.R code must be modified.
 2)	Download the ui.R and server.R to C:\TextPredictor
